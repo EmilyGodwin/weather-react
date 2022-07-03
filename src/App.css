@@ -1,38 +1,190 @@
-.App {
+:root {
+  --primary-color: #6ca6c1;
+  --secondary-color: #f7fff7;
+  --third-color: #ffe66d;
+  --text-color: #2f3061;
+}
+
+body {
+  background: #ffffff;
+}
+.box {
+  width: 800px;
+  max-width: 800px;
+  border: 5px solid var(--primary-color);
+  padding: 50px;
+  margin: 20px auto;
   text-align: center;
+  display: block;
+  background-color: var(--secondary-color);
+}
+.firstBox {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.secondBox {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-top: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.currentDay {
+  color: var(--text-color);
+  font-family: "Sansita", sans-serif;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  float: left;
+}
+.searchBar {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+}
+.searchInput {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+.currentIcon {
+  color: var(--third-color);
+  font-size: 100px;
+  margin: 10px;
+  padding: 10px;
+}
+.currentTemp {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  background: none;
+  padding: 20px;
+  font-weight: bold;
+  margin-top: -10px;
+  padding-top: 0;
+  float: left;
+  margin-left: -10px;
+}
+.temp {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  background: none;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 0;
+  transition: ease-in-out 120ms;
+}
+.temp:hover {
+  color: var(--third-color);
+}
+.currentCity {
+  color: var(--text-color);
+  font-family: "Sansita", sans-serif;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+ul {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+}
+li {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  margin-top: 10px;
+}
+.clock {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  width: 150px;
+  margin-left: 50px;
+  padding: 20px;
+  font-size: 20px;
+}
+.conditions {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  width: 150px;
+  margin-left: 50px;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+.city {
+  color: var(--text-color);
+  font-family: "Sansita", sans-serif;
+  border: 2px solid var(--primary-color);
+  margin: 20px;
+  margin-bottom: 0;
+  background: none;
+  transition: ease-in-out 120ms;
+  padding: 5px;
+  font-size: 20px;
+}
+.city:hover {
+  background: var(--third-color);
+}
+.icon {
+  fill: var(--third-color);
+  font-size: 30px;
+  padding: 20px;
+}
+.clock:hover {
+  cursor: pointer;
+}
+.link {
+  margin-top: 10px;
+  margin-left: 250px;
+  margin-bottom: 40px;
+  font-family: "Open Sans", sans-serif;
+}
+a {
+  color: rgb(157, 185, 236);
+  text-decoration: none;
+}
+.button {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: var(--third-color);
+}
+.weatherForecast {
+  margin-top: 10px;
+  text-align: center;
+  padding-right: 0;
+  margin-right: 0;
+}
+.weather-forecast-temp {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  transition: ease-in-out 120ms;
+  display: inline;
+  margin-top: 0;
+  padding-top: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weather-forecast-date {
+  color: var(--text-color);
+  font-family: "Sansita", sans-serif;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.col-2 {
+  margin: 10px;
 }
