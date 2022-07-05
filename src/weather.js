@@ -80,13 +80,21 @@ export default function Weather() {
         </div>
       </div>
       <footer className="link">
-        <a href="https://github.com/EmilyGodwin/weather-react" target="_blank">
+        <a
+          href="https://github.com/EmilyGodwin/weather-react"
+          target="_blank"
+          rel="noreferrer"
+        >
           Open-source code
         </a>
         <span>
           {" "}
           by{" "}
-          <a href="https://emilygodwin.netlify.app" target="_blank">
+          <a
+            href="https://emilygodwin.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+          >
             Emily Godwin
           </a>
         </span>
