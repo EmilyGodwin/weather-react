@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
+import FormattedTime from "./FormattedTime";
 import axios from "axios";
 
 export default function Weather() {
@@ -11,8 +13,7 @@ export default function Weather() {
       humidity: response.data.main.humidity,
       city: response.data.name,
       description: response.data.weather[0].description,
-      date: "Monday",
-      time: "2:30 pm",
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -23,7 +24,9 @@ export default function Weather() {
           <div className="box firstBox">
             <div className="topRow row">
               <div className="col">
-                <span className="currentDay">{weatherData.date}</span>
+                <span className="currentDay">
+                  <FormattedDate date={weatherData.date} />
+                </span>
               </div>
               <div className="col">
                 <span>
@@ -64,7 +67,9 @@ export default function Weather() {
                 </span>
               </div>
               <div className="col">
-                <div className="clock">{weatherData.time}</div>
+                <div className="clock">
+                  <FormattedTime date={weatherData.date} />
+                </div>
                 <div className="conditions">{weatherData.description}</div>
               </div>
             </div>
@@ -111,7 +116,7 @@ export default function Weather() {
     );
   } else {
     const apiKey = "12e817575070bcd60eb64f87187b9c19";
-    let city = "Maple Bluff";
+    let city = "New York";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading...";
