@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 
 export default function FormattedTime(props) {
   let minutes = props.date.getMinutes();
