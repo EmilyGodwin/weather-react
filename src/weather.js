@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
-import FormattedTime from "./FormattedTime";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -16,13 +18,27 @@ export default function Weather() {
       date: new Date(response.data.dt * 1000),
     });
   }
+  function search() {
+    const apiKey = "12e817575070bcd60eb64f87187b9c19";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
 
   if (weatherData.ready) {
     return (
       <div>
         <div className="container">
           <div className="box firstBox">
-            <div className="topRow row">
+            <div className="row">
               <div className="col">
                 <span className="currentDay">
                   <FormattedDate date={weatherData.date} />
@@ -30,51 +46,22 @@ export default function Weather() {
               </div>
               <div className="col">
                 <span>
-                  <form className="searchBar" id="search-form">
+                  <form className="searchBar" onSubmit={handleSubmit}>
                     <input
-                      className="searchInput"
                       type="search"
                       placeholder=" Enter City..."
-                      name="search"
-                      id="city-input"
-                      autoComplete="off"
+                      className="searchInput"
+                      autoFocus="on"
+                      onChange={handleCityChange}
                     />
                     <input type="submit" value="Search" className="button" />
                   </form>
                 </span>
               </div>
             </div>
-            <div className="rowTwo row">
-              <div className="col">
-                <div className="currentIcon">
-                  <i className="fa-solid fa-sun"></i>
-                </div>
-                <button className="currentTemp temp">
-                  {Math.round(weatherData.temperature)} °F
-                </button>
-              </div>
-              <div className="col">
-                <span>
-                  <div className="currentCity">{weatherData.city}</div>
-                  <ul>
-                    <li>
-                      Humidity: <span>{weatherData.humidity}</span>%
-                    </li>
-                    <li>
-                      Wind: <span>{weatherData.wind}</span> mph
-                    </li>
-                  </ul>
-                </span>
-              </div>
-              <div className="col">
-                <div className="clock">
-                  <FormattedTime date={weatherData.date} />
-                </div>
-                <div className="conditions">{weatherData.description}</div>
-              </div>
-            </div>
+            <WeatherInfo data={weatherData} />
             <div className="bottomRow row">
-              <button type="button" className="city col rounded">
+              <button type="submit" className="city col rounded">
                 London
               </button>
               <button type="button" className="city col rounded">
@@ -92,33 +79,10 @@ export default function Weather() {
             <div className="weatherForecast"></div>
           </div>
         </div>
-        <footer className="link">
-          <a
-            href="https://github.com/EmilyGodwin/weather-react"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open-source code
-          </a>
-          <span>
-            {" "}
-            by{" "}
-            <a
-              href="https://emilygodwin.netlify.app"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Emily Godwin
-            </a>
-          </span>
-        </footer>
       </div>
     );
   } else {
-    const apiKey = "12e817575070bcd60eb64f87187b9c19";
-    let city = "New York";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(handleResponse);
+    search();
     return "Loading...";
   }
 }
