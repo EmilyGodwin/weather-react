@@ -56,10 +56,7 @@ body {
   border-radius: 5px;
 }
 .currentIcon {
-  color: var(--third-color);
-  font-size: 100px;
-  margin: 10px;
-  padding: 10px;
+  padding: 30px;
 }
 .currentTemp {
   color: var(--text-color);
