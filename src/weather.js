@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 
 export default function Weather(props) {
@@ -10,6 +11,7 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -61,23 +63,11 @@ export default function Weather(props) {
               </div>
             </div>
             <WeatherInfo data={weatherData} />
-            <div className="bottomRow row">
-              <button type="submit" className="city col rounded">
-                London
-              </button>
-              <button type="button" className="city col rounded">
-                Macau
-              </button>
-              <button type="button" className="city col rounded">
-                Singapore
-              </button>
-              <button type="button" className="city col rounded">
-                Paris
-              </button>
-            </div>
           </div>
           <div className="box secondBox">
-            <div className="weatherForecast"></div>
+            <div className="weatherForecast col-2">
+              <WeatherForecast coordinates={weatherData.coordinates} />
+            </div>
           </div>
         </div>
       </div>

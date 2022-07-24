@@ -13,10 +13,16 @@ body {
   max-width: 800px;
   border: 5px solid var(--primary-color);
   padding: 50px;
+  padding-bottom: 5px;
   margin: 20px auto;
   text-align: center;
   display: block;
-  background-color: var(--secondary-color);
+  background: rgb(255, 247, 255);
+  background: linear-gradient(
+    254deg,
+    rgba(255, 247, 255, 1) 0%,
+    rgba(247, 255, 247, 1) 100%
+  );
 }
 .firstBox {
   border-top-left-radius: 5px;
@@ -55,9 +61,7 @@ body {
   border: 2px solid var(--primary-color);
   border-radius: 5px;
 }
-.currentIcon {
-  padding: 30px;
-}
+
 .currentTemp {
   color: var(--text-color);
   font-family: "Open Sans", sans-serif;
@@ -135,11 +139,7 @@ li {
 .city:hover {
   background: var(--third-color);
 }
-.icon {
-  fill: var(--third-color);
-  font-size: 30px;
-  padding: 20px;
-}
+
 .clock:hover {
   cursor: pointer;
 }
@@ -159,29 +159,4 @@ a {
   border: 2px solid var(--primary-color);
   border-radius: 5px;
   background-color: var(--third-color);
-}
-.weatherForecast {
-  margin-top: 10px;
-  text-align: center;
-  padding-right: 0;
-  margin-right: 0;
-}
-.weather-forecast-temp {
-  color: var(--text-color);
-  font-family: "Open Sans", sans-serif;
-  transition: ease-in-out 120ms;
-  display: inline;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.weather-forecast-date {
-  color: var(--text-color);
-  font-family: "Sansita", sans-serif;
-  border: 2px solid var(--primary-color);
-  border-radius: 5px;
-}
-
-.col-2 {
-  margin: 10px;
 }

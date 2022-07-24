@@ -1,0 +1,32 @@
+.weatherForecast {
+  margin-top: 10px;
+  text-align: center;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.WeatherForecast-temperature-min {
+  opacity: 0.6;
+}
+
+.WeatherForecast-temperature {
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  transition: ease-in-out 120ms;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.WeatherForecast-day {
+  color: var(--text-color);
+  font-family: "Sansita", sans-serif;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+.col-2 {
+  margin: 10px;
+}
+
+.icon {
+  padding-top: 10px;
+}

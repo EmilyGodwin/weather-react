@@ -8,11 +8,8 @@ export default function WeatherInfo(props) {
       <div className="row">
         <div className="col">
           <div className="currentIcon">
-            <WeatherIcon code={props.data.icon} />
+            <WeatherIcon code={props.data.icon} size={180} />
           </div>
-          <button className="currentTemp temp">
-            {Math.round(props.data.temperature)} °F
-          </button>
         </div>
         <div className="col">
           <span>
@@ -24,6 +21,7 @@ export default function WeatherInfo(props) {
               <li>
                 Wind: <span>{props.data.wind}</span> mph
               </li>
+              <li>{Math.round(props.data.temperature)} °F</li>
             </ul>
           </span>
         </div>
